@@ -1,0 +1,44 @@
+/* singleShow stylings */
+.singleShowWrapper{
+    width: 70%;
+    margin: auto;
+    display:flex;
+    gap: 34px;
+    align-items:flex-start;
+  }
+  .singleShowWrapper .imageContainer {
+    width: 30%;
+  }
+  .singleShowWrapper .imageContainer img{
+    width: 100%;
+    object-fit: cover;
+  }
+  .singleShowWrapper .contentWrapper{
+    width: 60%;
+  }
+  .stats{
+    margin-top: 12px;
+    margin-bottom:8px;
+  }
+  form{
+    width: 250px;
+
+  }
+  .form-group{
+    display: flex;
+    gap: 5px;
+    margin-top: 12px;
+  }
+  @media screen and (max-width:767px) {
+    .singleShowWrapper{
+        display: block;
+    }
+    .singleShowWrapper .imageContainer {
+        width: 70%;
+        margin: auto;
+      }
+      .singleShowWrapper .contentWrapper{
+        width: 100%;
+      }
+
+  }
