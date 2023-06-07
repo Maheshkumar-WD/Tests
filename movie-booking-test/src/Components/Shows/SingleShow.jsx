@@ -17,14 +17,12 @@ const SingleShow = () => {
   });
   let { showId } = useParams();
   let fetchData = useCallback(async () => {
-    let response = await axios.get(
-      "https://api.tvmaze.com/search/shows?q=all"
-    );
+    let response = await axios.get("https://api.tvmaze.com/search/shows?q=all");
     let data = await response.data;
     let currentData = data.filter((dt) => dt.show.id === +showId);
     console.log(currentData[0].show);
     setCurrData(currentData[0].show);
-  },[showId]);
+  }, [showId]);
   useEffect(() => {
     fetchData();
     return () => {
@@ -43,7 +41,7 @@ const SingleShow = () => {
   };
   let handleSubmit = (e) => {
     e.preventDefault();
-    let submitData = { ...formData, show: currData };
+    let submitData = { ...formData, showId, show: currData };
     let localstorageData = JSON.parse(localStorage.getItem("usersData")) || [];
     localstorageData.push(submitData);
     localStorage.setItem("usersData", JSON.stringify(localstorageData));

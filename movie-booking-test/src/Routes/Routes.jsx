@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AllShowsPage from "./Pages/AllShowsPage";
 import SingleShow from "../Components/Shows/SingleShow";
-import { showsLoader } from "../Store/Reducers/Slices/Loaders/ShowsLoader";
+import { showsLoader } from "./Loaders/ShowsLoader";
 
 const rootRouter = createBrowserRouter([
   {

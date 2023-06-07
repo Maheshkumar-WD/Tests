@@ -3,13 +3,10 @@ import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import classes from "./Shows.module.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { showActions } from "../../Store/Reducers/Slices/ShowSlice";
 const Show = ({ show }) => {
+  
   let navigate = useNavigate();
-  let dispatch = useDispatch();
   const handleSetCurrentShow = () => {
-    dispatch(showActions.setCurrentShow(show));
     return navigate(`/show/${show.id}`);
   };
   return (
