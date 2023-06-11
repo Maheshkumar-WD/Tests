@@ -1,0 +1,28 @@
+.header {
+    position: sticky;
+    top: 0;
+    margin-bottom: 12px;
+    }
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navContainer ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center ;
+    gap: 28px;
+}
+.navContainer ul li{
+    display: flex;
+    align-items: center;
+}
+a:link,a:visited{
+    color: #333;
+    text-decoration: none;
+}
+.active{
+    color: black;
+}

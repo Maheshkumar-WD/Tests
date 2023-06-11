@@ -1,0 +1,15 @@
+.form-controls .label {
+  display: block;
+}
+.customInput {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 16px;
+  border: 2px solid lightgray;
+  outline-color: gray;
+  border-radius: 4px;
+}
+.input-group {
+  display: flex;
+  gap: 5px;
+}
