@@ -8,10 +8,10 @@ import { authActions } from "../../Reducer/AuthSlice/AuthSlice";
 const Navbar = () => {
   let navigate = useNavigate();
   let authStore = useSelector((state) => state.auth);
-  console.log(authStore)
   let dispatch = useDispatch();
+
   let setActive = ({ isActive }) => {
-    return isActive ? "active" : "";
+    return isActive ? classes.active : "";
   };
   return (
     <header className={classes.header}>
@@ -47,19 +47,38 @@ const Navbar = () => {
             {authStore.isAuth && (
               <>
                 <li>
-                  <NavLink to={"/dashboard/alltransactions"} className={setActive}>All Transations</NavLink>
+                  <NavLink
+                    to={"/dashboard"}
+                    className={setActive}
+                    end
+                  >
+                    All Transations
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to={`/dashboard/transfer/${authStore.token}`} className={setActive}>Transfer</NavLink>
+                  <NavLink
+                    to={`/dashboard/transfer/${authStore.token}`}
+                    className={setActive}
+                  >
+                    Transfer
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink className={setActive}>Deposit</NavLink>
+                  <NavLink
+                    to={`/dashboard/deposit/${authStore.token}`}
+                    className={setActive}
+                  >
+                    Deposit
+                  </NavLink>
                 </li>
+                
                 <li>
-                  <NavLink className={setActive}>Mini Statement</NavLink>
-                </li>
-                <li>
-                  <NavLink className={setActive}>Settings</NavLink>
+                  <NavLink
+                    to={`/dashboard/account/${authStore.token}`}
+                    className={setActive}
+                  >
+                    Account
+                  </NavLink>
                 </li>
                 <li>
                   <Button

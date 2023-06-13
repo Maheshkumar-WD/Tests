@@ -1,0 +1,8 @@
+.depositWrapper {
+  width: 30%;
+}
+.RecentDeposits {
+  width: 50% !important;
+  overflow-y: auto;
+}
+

@@ -10,6 +10,7 @@
   border-radius: 4px;
 }
 .input-group {
+  margin-top: 8px;
   display: flex;
   gap: 5px;
 }

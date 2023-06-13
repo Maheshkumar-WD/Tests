@@ -1,0 +1,7 @@
+.DepositPage{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding: 0 54px;
+    align-items: flex-start;
+}

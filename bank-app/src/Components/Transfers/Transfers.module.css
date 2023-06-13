@@ -1,0 +1,13 @@
+.transferWrapper {
+  width: 30%;
+}
+
+
+.recentTransfers {
+  width: 50% !important;
+  overflow-y: auto;
+}
+.card{
+  width: 70% !important;
+  max-height: 800px;
+}

@@ -6,8 +6,11 @@ import Input from "../UI/Input/Input";
 import Select from "../UI/Input/Select";
 import InputGroup from "../UI/Input/InputGroup";
 import Button from "../UI/Button/Button";
+import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const DematAccountForm = () => {
+  let navigate = useNavigate();
   let [locationData, setLocationData] = useState({
     country: "",
     countryCode: "",
@@ -135,6 +138,7 @@ const DematAccountForm = () => {
       pincode: formData.pincode,
       password: formData.password,
       accountNumber: Date.now(),
+      balance: 0,
     };
     let sendRequest = async (url) => {
       let response = await fetch(url, {
@@ -144,13 +148,13 @@ const DematAccountForm = () => {
       let isOk = response.ok;
       if (isOk) {
         alert("Demat account created success");
+        return navigate("/login");
       } else {
         throw new Error("Something went wrong! try again.");
       }
     };
 
     try {
-      console.log(process.env.REACT_APP_ACCOUNT_HOLDERS);
       await sendRequest(process.env.REACT_APP_ACCOUNT_HOLDERS);
     } catch (error) {
       return alert(error.message);
@@ -158,100 +162,104 @@ const DematAccountForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={classes.dematAccForm}>
-      <Card>
-        <h1>Open Demat Account</h1>
-        <InputGroup>
+    <>
+      <Navbar />
+      <form onSubmit={handleSubmit} className={classes.dematAccForm}>
+        <Card>
+          <h1>Open Demat Account</h1>
+          <InputGroup>
+            <Input
+              label={"Name"}
+              inputName={"name"}
+              inputId={"name"}
+              inputType={"text"}
+              onChange={handleChangeInput}
+            />
+            <Input
+              label={"email"}
+              inputType={"email"}
+              inputId={"email"}
+              inputName={"email"}
+              onChange={handleChangeInput}
+            />
+          </InputGroup>
           <Input
-            label={"Name"}
-            inputName={"name"}
-            inputId={"name"}
+            label={"Phone"}
             inputType={"text"}
+            inputId={"phone"}
+            inputName={"phone"}
+            onChange={handleChangeInput}
+          />
+          <InputGroup>
+            <Input
+              label={"Pancard Number"}
+              inputType={"text"}
+              inputId={"pancard"}
+              inputName={"panNumber"}
+              onChange={handleChangeInput}
+            />
+            <Input
+              label={"Aadhar Number"}
+              inputType={"text"}
+              inputId={"aadhar"}
+              inputName={"aadharNumber"}
+              onChange={handleChangeInput}
+            />
+          </InputGroup>
+          <InputGroup>
+            <Select
+              options={countries}
+              onChange={handleCountryChange}
+              inputName={"country"}
+              label={"Select Country"}
+              initialSelectValue={"Select Country"}
+            />
+            <Select
+              options={states}
+              inputName={"state"}
+              label={"Select State"}
+              onChange={handleStateChange}
+              initialSelectValue={"Select State"}
+            />
+          </InputGroup>
+          <InputGroup>
+            <Select
+              onChange={handleCityChange}
+              options={cities}
+              inputName={"city"}
+              label={"Select City"}
+              initialSelectValue={"Select City"}
+            />
+            <Input
+              label={"Pincode"}
+              inputType={"text"}
+              inputId={"pincode"}
+              inputName={"pincode"}
+              onChange={handleChangeInput}
+            />
+          </InputGroup>
+          <Input
+            inputType={"password"}
+            label={"Password"}
+            inputId={"password"}
+            inputName={"password"}
             onChange={handleChangeInput}
           />
           <Input
-            label={"email"}
-            inputType={"email"}
-            inputId={"email"}
-            inputName={"email"}
+            inputType={"password"}
+            label={"Confirm Password"}
+            inputId={"confirmPassword"}
+            inputName={"confirmPassword"}
             onChange={handleChangeInput}
           />
-        </InputGroup>
-        <Input
-          label={"Phone"}
-          inputType={"text"}
-          inputId={"phone"}
-          inputName={"phone"}
-          onChange={handleChangeInput}
-        />
-        <InputGroup>
-          <Input
-            label={"Pancard Number"}
-            inputType={"text"}
-            inputId={"pancard"}
-            inputName={"panNumber"}
-            onChange={handleChangeInput}
-          />
-          <Input
-            label={"Aadhar Number"}
-            inputType={"text"}
-            inputId={"aadhar"}
-            inputName={"aadharNumber"}
-            onChange={handleChangeInput}
-          />
-        </InputGroup>
-        <InputGroup>
-          <Select
-            options={countries}
-            onChange={handleCountryChange}
-            inputName={"country"}
-            label={"Select Country"}
-            initialSelectValue={"Select Country"}
-          />
-          <Select
-            options={states}
-            inputName={"state"}
-            label={"Select State"}
-            onChange={handleStateChange}
-            initialSelectValue={"Select State"}
-          />
-        </InputGroup>
-        <InputGroup>
-          <Select
-            onChange={handleCityChange}
-            options={cities}
-            inputName={"city"}
-            label={"Select City"}
-            initialSelectValue={"Select City"}
-          />
-          <Input
-            label={"Pincode"}
-            inputType={"text"}
-            inputId={"pincode"}
-            inputName={"pincode"}
-            onChange={handleChangeInput}
-          />
-        </InputGroup>
-        <Input
-          inputType={"password"}
-          label={"Password"}
-          inputId={"password"}
-          inputName={"password"}
-          onChange={handleChangeInput}
-        />
-        <Input
-          inputType={"password"}
-          label={"Confirm Password"}
-          inputId={"confirmPassword"}
-          inputName={"confirmPassword"}
-          onChange={handleChangeInput}
-        />
-        <div className={classes["form-actions"]}>
-
-        <Button varient={"solid"} type={"submit"}>Create Account</Button>
-        </div>
-      </Card>
-    </form>
+          <div className={classes["form-actions"]}>
+            <Button varient={"solid"} type={"submit"}>
+              Create Account
+            </Button>
+          </div>
+        </Card>
+      </form>
+    </>
   );
 };
 

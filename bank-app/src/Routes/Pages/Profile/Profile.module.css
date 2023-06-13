@@ -1,0 +1,23 @@
+.ProfileContainer {
+  width: 500px;
+  margin: auto;
+}
+table {
+  width: 100%;
+}
+.ProfileContainer table,
+tr,
+td {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  padding: 4px;
+}
+tr th {
+  text-align: left;
+}
+tr {
+  padding: 4px;
+}
+tr:nth-child(even) {
+  background-color: rgba(211, 211, 211, 0.238);
+}
