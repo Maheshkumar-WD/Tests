@@ -29,10 +29,6 @@ const PersonalLoanApplication = () => {
     { name: "36 Months", value: 36 },
   ];
   let handleSubmit = async (e) => {
-    let bodyData = {
-      ...formData,
-      
-    }
     e.preventDefault();
     try {
       let response = await fetch(

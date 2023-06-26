@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import classes from "./Applications.module.css";
 import TableRow from "./TableRow";
 import Card from "../../../../Components/UI/Card/Card";
@@ -14,10 +14,9 @@ const Applications = () => {
     let searchData = useSelector(state => state.applications.searchApplication);
     let [searchParams, setSearchParams] = useSearchParams();
     let dispatch = useDispatch()
-    let fetchApplications = async () => {
+    let fetchApplications = useCallback(async () => {
         let response = await fetch(
             process.env.REACT_APP_ACCOUNT + "applications.json", {
-
         }
         );
         let data = await response.json();
@@ -26,15 +25,11 @@ const Applications = () => {
         });
         transformData = transformData.reverse()
         dispatch(applicationsActions.setApplications(transformData))
-        return
-    };
+    },[dispatch]);
     useEffect(() => {
-        try {
             fetchApplications();
-        } catch (error) {
-
-        }
-    }, [])
+        
+    }, [fetchApplications])
 
     useEffect(() => {
         let query = searchParams.get("search")
@@ -48,9 +43,8 @@ const Applications = () => {
         }
         return () => {
             dispatch(applicationsActions.setSearchApplication(null))
-
         }
-    }, [searchParams, dispatch, data])
+    }, [dispatch, data, searchParams])
 
     let debounceSearch;
     let handleSetParams = (e) => {
