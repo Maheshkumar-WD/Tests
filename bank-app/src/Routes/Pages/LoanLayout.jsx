@@ -1,15 +1,12 @@
 import React from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 
-const Home = () => {
-  
+const LoanLayout = () => {
   return (
     <>
-      <Navbar />
       <Outlet />
     </>
   );
 };
 
-export default Home;
+export default LoanLayout;

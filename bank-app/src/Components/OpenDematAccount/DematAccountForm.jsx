@@ -136,6 +136,7 @@ const DematAccountForm = () => {
       state: locationData.state,
       city: locationData.city,
       pincode: formData.pincode,
+      userType:"user",
       password: formData.password,
       accountNumber: Date.now(),
       balance: 0,

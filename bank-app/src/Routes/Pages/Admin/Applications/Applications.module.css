@@ -1,0 +1,17 @@
+.cardHeader{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.tableContainer {
+  width: 70%;
+  margin: auto;
+}
+.tableBtn {
+  display: inline;
+  width: auto;
+}
+.actionTd{
+    text-align: center;
+}

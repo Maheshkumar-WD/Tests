@@ -8,18 +8,21 @@ import { useNavigate } from "react-router-dom";
 import { authActions } from "../../Reducer/AuthSlice/AuthSlice";
 import Navbar from "../Navbar/Navbar";
 const Login = () => {
-  let { isAuth } = useSelector((state) => state.auth);
+  let { token, isAdmin, isAuth } = useSelector((state) => state.auth);
   let dispatch = useDispatch();
   let navigate = useNavigate();
   let [formData, setFormData] = useState({
     id: "",
     password: "",
   });
+
   useEffect(() => {
-    if (isAuth) {
+    if (isAuth && isAdmin) {
+      return navigate("/admin")
+    } else if (isAuth && !isAdmin) {
       return navigate("/dashboard");
     }
-  }, [isAuth, navigate]);
+  }, [isAdmin, isAuth, navigate]);
   let handleChange = (e) => {
     let { name, value } = e.target;
     setFormData((prev) => {
@@ -37,13 +40,29 @@ const Login = () => {
         let users = await response.json();
         let currUser;
         Object.keys(users).forEach((key) => {
+          console.log(users[key]);
           if (
+            users[key].phone === formData.id &&
+            users[key].password === formData.password &&
+            users[key].userType === "admin"
+          ) {
+            console.log("user found");
+            currUser = {
+              token: key,
+              userType: "admin",
+            };
+            // return;
+          } else if (
             users[key].phone === formData.id &&
             users[key].password === formData.password
           ) {
-            currUser = key;
+            currUser = {
+              token: key,
+              userType: "user",
+            };
           }
         });
+        console.log(currUser);
         if (currUser) {
           dispatch(authActions.login(currUser));
           return;

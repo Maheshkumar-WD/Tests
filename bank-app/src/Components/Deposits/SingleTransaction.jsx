@@ -50,6 +50,7 @@ const SingleTransaction = ({ transaction, onClick }) => {
     <>
       {model}
       <div
+      key={transaction.id}
         onClick={() => setShowModel(true)}
         className={classes.transactionWrapper}
       >

@@ -1,0 +1,19 @@
+.card_wrapper {
+  width: 650px;
+  margin: auto;
+}
+.loans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.loan_card {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loan_card h1{
+    font-size: 20px;
+    font-weight: 400;
+}

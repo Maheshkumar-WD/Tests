@@ -1,9 +1,8 @@
 import React from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
+import Navbar from "../../../Components/Navbar/Navbar";
 
-const Home = () => {
-  
+const AdminLayout = () => {
   return (
     <>
       <Navbar />
@@ -12,4 +11,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AdminLayout;

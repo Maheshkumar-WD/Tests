@@ -42,13 +42,14 @@ const Transfer = () => {
 
           let TranUser = Object.keys(data).filter((user) => {
             return (
-              data[user].phone == formData.phone ||
-              data[user].accountNumber == formData.accountNumber
+              +data[user].phone === +formData.phone ||
+              data[user].accountNumber === +formData.accountNumber
             );
           });
 
           if (TranUser.length === 0) {
             setTransferTo(null);
+            throw new Error("User Not Found")
           }
           let setTranData = data[TranUser[0]];
           setTranData.id = TranUser[0];
@@ -69,6 +70,7 @@ const Transfer = () => {
       transactionId: "TRSNID" + Date.now(),
       date: new Date(),
     };
+    // posting logic 
     let sendRequest = async (url, body) => {
       try {
         let response = await fetch(url, {
@@ -80,7 +82,6 @@ const Transfer = () => {
           throw new Error("Something went Wrong");
         }
         let responseToken = await response.json();
-        let dispatchBody = { ...body, id: responseToken.name };
         
       } catch (error) {
         alert(error.message);

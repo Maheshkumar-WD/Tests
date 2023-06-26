@@ -8,7 +8,8 @@ const Input = ({
   inputType,
   inputName,
   inputId,
-  placeholder
+  placeholder,
+  inputValue
 }) => {
   let inputClasses = `${classes.customInput} ${inputClassName} `;
   let labelClasses = `${classes.label} ${labelClassName} `;
@@ -25,6 +26,7 @@ const Input = ({
         id={inputId}
         autoComplete={"off"}
         placeholder={placeholder}
+        value = {inputValue}
       />
     </div>
   );

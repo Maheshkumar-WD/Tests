@@ -7,13 +7,12 @@ import InputGroup from "../UI/Input/InputGroup";
 import { useParams } from "react-router-dom";
 import { useFetchUser } from "../../utils/fetchUser";
 import { transactionsActions } from "../../Reducer/Transactions/TransactionSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 const Deposit = () => {
   let { id } = useParams();
   let dispatch = useDispatch();
-  let transactions = useSelector((state) => state.transactions.allTransactions);
-
-  let [formData, setFormData] = useState({ amount: "", password: "" });
+  let initState = { amount: "", password: "" };
+  let [formData, setFormData] = useState(initState);
   let user = useFetchUser(
     process.env.REACT_APP_ACCOUNT + `/account_holders/${id}.json`
   );
@@ -38,7 +37,7 @@ const Deposit = () => {
           amount: amount,
           transactionId: "TRSNID" + Date.now(),
           transactionType: "deposit",
-          date: new Date(),
+          date: new Date().toDateString(),
           user: id,
         };
         let response = await fetch(
@@ -48,7 +47,8 @@ const Deposit = () => {
         if (!response.ok) {
           return alert("Deposit Failed! Please try again after sometime...");
         } else {
-          let dispatchBody = { ...data, id: response.name };
+          let { name } = await response.json();
+          let dispatchBody = { ...data, id: name };
           dispatch(transactionsActions.setSingleTransaction(dispatchBody));
           let patchBody = JSON.stringify({
             balance: amount + user.balance,
@@ -60,7 +60,7 @@ const Deposit = () => {
           if (!patchResponse.ok) {
             alert("somthing Went wrong");
           }
-
+          setFormData(initState);
           return alert("Deposit Success");
         }
       } else {
@@ -80,6 +80,7 @@ const Deposit = () => {
           label={"Deposit Amount"}
           inputName={"amount"}
           placeholder="Enter Deposit Amount"
+          inputValue={formData.amount}
         />
         <Input
           onChange={handleChange}
@@ -87,6 +88,7 @@ const Deposit = () => {
           label={"Password"}
           placeholder={"Enter password"}
           inputName={"password"}
+          inputValue={formData.password}
         />
         <InputGroup>
           <Button type={"submit"} varient={"solid"}>
