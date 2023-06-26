@@ -6,7 +6,7 @@ import { transactionsActions } from "../../Reducer/Transactions/TransactionSlice
 
 const DashboardPage = () => {
   let userId = useSelector((state) => state.auth.token);
-  console.log(userId);
+  
   let dispatch = useDispatch();
   let [transaction, error] = useAllTransactions(userId);
   useEffect(() => {

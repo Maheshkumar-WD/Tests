@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import Card from "../UI/Card/Card";
 import classes from "./Navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -9,7 +9,6 @@ import { authActions } from "../../Reducer/AuthSlice/AuthSlice";
 const Navbar = () => {
   let navigate = useNavigate();
   let authStore = useSelector((state) => state.auth);
-  console.log(authStore);
   let dispatch = useDispatch();
 
   let setActive = ({ isActive }) => {

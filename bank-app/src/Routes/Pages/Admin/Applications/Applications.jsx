@@ -28,9 +28,7 @@ const Applications = () => {
         dispatch(applicationsActions.setApplications(transformData))
         return
     };
-    console.log(searchData);
     useEffect(() => {
-        console.log("fetching again")
         try {
             fetchApplications();
         } catch (error) {
@@ -40,7 +38,6 @@ const Applications = () => {
 
     useEffect(() => {
         let query = searchParams.get("search")
-        console.log("query", query)
         if (query !== "" && query) {
             if (data) {
                 let searchData = data.filter(app => app.id.match(query));

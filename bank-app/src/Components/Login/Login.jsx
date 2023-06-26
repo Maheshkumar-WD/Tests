@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { authActions } from "../../Reducer/AuthSlice/AuthSlice";
 import Navbar from "../Navbar/Navbar";
 const Login = () => {
-  let { token, isAdmin, isAuth } = useSelector((state) => state.auth);
+  let {  isAdmin, isAuth } = useSelector((state) => state.auth);
   let dispatch = useDispatch();
   let navigate = useNavigate();
   let [formData, setFormData] = useState({
@@ -40,18 +40,15 @@ const Login = () => {
         let users = await response.json();
         let currUser;
         Object.keys(users).forEach((key) => {
-          console.log(users[key]);
           if (
             users[key].phone === formData.id &&
             users[key].password === formData.password &&
             users[key].userType === "admin"
           ) {
-            console.log("user found");
             currUser = {
               token: key,
               userType: "admin",
             };
-            // return;
           } else if (
             users[key].phone === formData.id &&
             users[key].password === formData.password
@@ -62,7 +59,6 @@ const Login = () => {
             };
           }
         });
-        console.log(currUser);
         if (currUser) {
           dispatch(authActions.login(currUser));
           return;

@@ -1,27 +1,25 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import Button from "../../../../Components/UI/Button/Button";
 import InputGroup from "../../../../Components/UI/Input/InputGroup";
 import classes from "./Applications.module.css"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { applicationsActions } from "../../../../Reducer/Admin/Applications/ApplicationsSlice";
 const TableRow = ({ application, id }) => {
-    let data = useSelector(state => state.applications.data);
+    // let data = useSelector(state => state.applications.data);
     let dispatch = useDispatch();
-    let [userInfo, setUserInfo] = useState(null);
-    console.log(data);
-    let fetchUser = async () => {
-        try {
-            let response = await fetch(
-                process.env.REACT_APP_ACCOUNT + `account_holders/${application.userId}.json`
-            );
-            let result = await response.json();
-            setUserInfo(result);
-            return;
-        } catch (error) {
-            return error;
-        }
-    };
-    let handleReject = async()=>{
+    // let fetchUser = async () => {
+    //     try {
+    //         let response = await fetch(
+    //             process.env.REACT_APP_ACCOUNT + `account_holders/${application.userId}.json`
+    //         );
+    //         let result = await response.json();
+    //         setUserInfo(result);
+    //         return;
+    //     } catch (error) {
+    //         return error;
+    //     }
+    // };
+    let handleReject = async () => {
         try {
             let response = await fetch(process.env.REACT_APP_ACCOUNT + `applications/${application.id}.json`, { method: "PATCH", body: JSON.stringify({ rejected: true }), headers: { "Content-Type": "application/json" } })
             if (!response.ok) {
@@ -47,9 +45,9 @@ const TableRow = ({ application, id }) => {
         dispatch(applicationsActions.approve(application.id));
     }
 
-    useEffect(() => {
-        fetchUser();
-    }, []);
+    // useEffect(() => {
+    //     fetchUser();
+    // }, []);
     return <tr>
         <td>{id}</td>
         <td>{application.type}</td>

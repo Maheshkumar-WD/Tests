@@ -74,8 +74,7 @@ export const loader = async ({ request, params }) => {
       throw new Error("Something went wrong.");
     }
     let result = await response.json();
-    let transformedData = Object.keys(result).map(key => result[key]).filter(ele=>ele.userId=== id);
-    console.log(transformedData)
+    let transformedData = Object.keys(result).map(key => result[key]).filter(ele => ele.userId === id);
     return transformedData
   } catch (error) {
     return {};
