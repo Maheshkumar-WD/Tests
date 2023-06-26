@@ -53,7 +53,7 @@ import AuthorizedProtectedRoute from "./Pages/Admin/AuthorizedProtectedRoute";
 import AdminLayout from "./Pages/Admin/AdminLayout";
 import AdminApplications from "./Pages/Admin/Applications/Applications";
 import Applications from "./Pages/Loans/TrackApplications/Applications";
-import { Suspense } from "react";
+
 
 let router = createBrowserRouter([
   {
