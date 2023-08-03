@@ -1,0 +1,32 @@
+.plan-selection-container {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 12px;
+}
+.plan-selection-container .plan-btns {
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 6px;
+  display: flex;
+}
+.plan-selection-container .plan-btns .plan-btn {
+  font-size: small;
+  background-color: transparent;
+  display: flex;
+  gap: 4px;
+}
+.plan-selection-container .plan-btns .plan-btn .plan-offTxt {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ff00ee, #bf00ff);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.plan-selection-container .plan-btns .plan-btn.selectedPlan {
+  background-color: white;
+  border: 1px solid black;
+}/*# sourceMappingURL=PricingSection.css.map */

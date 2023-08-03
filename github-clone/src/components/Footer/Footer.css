@@ -1,0 +1,27 @@
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.footer-container .footer-left .logo {
+  margin: 12px 0;
+}
+.footer-container .footer-left .subscribe-title {
+  font-weight: 600;
+}
+.footer-container .footer-left .subscribe-btn {
+  margin: 12px 0;
+  background-color: white;
+  border: 2px solid #333;
+}
+.footer-container .footer-right {
+  color: gray;
+  font-size: 14px;
+  display: flex;
+  gap: 54px;
+}
+.footer-container .footer-right .col {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}/*# sourceMappingURL=Footer.css.map */

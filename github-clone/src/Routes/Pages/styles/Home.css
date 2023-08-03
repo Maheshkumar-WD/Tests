@@ -1,0 +1,50 @@
+.home-page-dark {
+  background-color: #14172f;
+  color: rgba(226, 226, 226, 0.8588235294);
+}
+
+.trustedLogos {
+  display: flex;
+  gap: 12px;
+  justify-content: space-evenly;
+}
+
+.info-text {
+  width: 48%;
+  line-height: 1.2;
+}
+.info-text .info-text-colored {
+  color: #7ee787;
+}
+
+.code-space-section {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.code-space-section .code-space-section-text {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 28px !important;
+}
+.code-space-section .code-space-section-text .info-text {
+  font-size: 28px;
+}
+.code-space-section .code-space-section-images {
+  width: 65%;
+  position: relative;
+}
+.code-space-section .code-space-section-images .img1 {
+  position: absolute;
+  left: -120px;
+  width: 400px !important;
+}
+.code-space-section .code-space-section-images .img2 {
+  position: absolute;
+  top: -200px;
+  right: 50px;
+  width: 400px !important;
+  overflow: hidden;
+}/*# sourceMappingURL=Home.css.map */

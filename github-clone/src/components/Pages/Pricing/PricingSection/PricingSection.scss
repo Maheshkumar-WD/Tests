@@ -1,0 +1,31 @@
+.plan-selection-container {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 12px;
+  & .plan-btns {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 6px;
+    display: flex;
+    & .plan-btn {
+      font-size: small;
+      background-color: transparent;
+      display: flex;
+      gap: 4px;
+      & .plan-offTxt {
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        background: linear-gradient(to bottom right, #ff00ee, #bf00ff);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &.selectedPlan {
+        background-color: white;
+        border: 1px solid black;
+      }
+    }
+  }
+}

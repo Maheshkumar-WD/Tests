@@ -1,0 +1,48 @@
+.home-page-dark {
+  background-color: #14172f;
+  color: #e2e2e2db;
+}
+.trustedLogos {
+  display: flex;
+  gap: 12px;
+  justify-content: space-evenly;
+}
+.info-text {
+  width: 48%;
+  line-height: 1.2;
+  & .info-text-colored {
+    color: #7ee787;
+  }
+}
+.code-space-section {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  & .code-space-section-text {
+    width: fit-content;
+    font-size: 28px !important;
+    & .info-text {
+      font-size: 28px;
+    }
+  }
+  & .code-space-section-images {
+    
+    width: 65%;
+    position: relative;
+    & .img1 {
+      position: absolute;
+      left: -120px;
+      width: 400px !important;
+      
+    }
+    & .img2 {
+      position: absolute;
+      top: -200px;
+      right: 50px;
+      width: 400px !important;
+      overflow: hidden;
+    }
+  }
+}

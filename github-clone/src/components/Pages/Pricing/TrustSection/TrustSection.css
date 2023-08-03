@@ -1,0 +1,74 @@
+.swiperContainer {
+  margin-top: 24px;
+  padding: 12px !important;
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+  overflow-x: auto;
+}
+.swiperContainer::-webkit-scrollbar {
+  height: 2px !important;
+}
+.swiperContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+.swiperContainer::-webkit-scrollbar-thumb {
+  background: white;
+}
+.swiperContainer .swiper-wrapper {
+  align-items: center !important;
+}
+.swiperContainer .swiperslidecard {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.swiperContainer .swiperslidecard.active {
+  background-color: white !important;
+  transition: all 0.8s;
+}
+.swiperContainer .swiperslidecard.active .image {
+  filter: grayscale(0) invert(0);
+  border-radius: 24px;
+}
+.swiperContainer .swiperslidecard .image {
+  height: 80px;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  filter: grayscale(100%) invert(1);
+  padding: 24px 12px;
+}
+
+.trust-content-container {
+  padding: 12px 24px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  transition: width 0.5s;
+}
+.trust-content-container .trust-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-start;
+}
+.trust-content-container .trust-content .trust-desc {
+  background: linear-gradient(to bottom right, #00c3ff, #00ffd5);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+}
+.trust-content-container .trust-content .trust-author {
+  color: white;
+  font-size: 18px;
+}
+.trust-content-container .trust-content a {
+  margin-top: 28px;
+  color: #2f81f7;
+  font-size: 20px;
+  font-weight: 600;
+}/*# sourceMappingURL=TrustSection.css.map */

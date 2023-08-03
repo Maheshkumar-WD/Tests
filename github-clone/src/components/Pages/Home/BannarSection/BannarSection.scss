@@ -1,0 +1,88 @@
+.background-image {
+  width: 100%;
+  height: auto;
+  background-image: url('https://github.githubassets.com/images/modules/site/home-campaign/hero-bg.webp');
+  background-repeat: no-repeat;
+  background-size: 300%;
+  background-position: 60% top;
+  & .bnr-button {
+    margin-top: 15rem;
+    & .logo {
+      background-color: white;
+      color: black;
+      font-size: x-large;
+      padding: 12px;
+      border-radius: 25px;
+      box-sizing: content-box;
+    }
+    background-color: transparent;
+    display: inline-flex;
+    gap: 24px;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 12px 32px;
+    & .bnr-btn-heading {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    & .bnr-btn-text {
+      color: #acacac;
+      font-size: 14px;
+    }
+  }
+  & .drone-image-container {
+    margin-top: 8%;
+    display: flex;
+    justify-content: right;
+    margin-right: 50px;
+    position: relative;
+    & .drone {
+      position: absolute;
+      width: 35%;
+      top: 0;
+      animation: droneAnimate 3s ease both;
+      animation-iteration-count: infinite;
+    }
+    @keyframes droneAnimate {
+      0% {
+        top: 0;
+      }
+      50% {
+        top: 10px;
+      }
+      100% {
+        top: 0;
+      }
+    }
+  }
+  .calltoactions {
+    display: flex;
+    gap: 12px;
+    .input-wrapper {
+      display: flex;
+      & .inputEle {
+        padding: 12px;
+        border-radius: 5px 0 0 5px;
+        width: 300px;
+        color: #333 !important;
+      }
+      & .calltoaction-button {
+        background-color: #6e40c9;
+        padding: 12px;
+        border-radius: 0 5px 5px 0;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    .calltoaction-freebutton {
+      border: 2px solid currentColor;
+      padding: 12px;
+      border-radius: 5px;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.addOnCard {
+  padding: 12px;
+  gap: 12px;
+  align-items: start;
+  cursor: pointer;
+  border: 2px solid lightgray !important;
+  transition: all 0.5s;
+}
+
+.addOnCard:hover {
+  transform: scale(1.03) !important;
+  box-shadow: 0 0 2px 0.5px lightgray;
+}
+.logo-background {
+  background-color: rgba(219, 219, 219, 0.759);
+  padding: 12px;
+  border-radius: 50%;
+}
+.addOnCard .addOnCard-link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  background: linear-gradient(to bottom right, #ff00ee, #bf00ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.compareFeturesHeading-wrapper{
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right , #ff00ee,#bf00ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
